@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Doctor.Models.Consultatie>
+
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Istoric consultatii</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.PacientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediCId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Greutate)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Talie)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Inaltime)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.IMC)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.RezultateAnalize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnostic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tratament)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observatii)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.PacientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MediCId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Greutate)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Talie)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Inaltime)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IMC)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.RezultateAnalize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diagnostic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tratament)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observatii)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Consultaties", new { id = item.ID })" class="btn btn-info">
+                    Editeaza
+                    <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+                <a href="@Url.Action("Delete", "Consultaties", new { id = item.ID })" class="btn btn-danger">
+                    Sterge
+                    <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                </a>
+                <a href="@Url.Action("Details", "Consultaties", new { id = item.ID })" class="btn btn-success">
+                    Detalii
+                    <span class="glyphicon glyphicon glyphicon-list" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,228 @@
+﻿@model IEnumerable<Doctor.Models.Pacient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista pacientilor</h2>
+<p>
+    @*@Html.ActionLink("Adauga un pacient nou", "Create")*@
+    <a href="@Url.Action("Adaugare", "AdaugarePacient")" class="btn btn-success">
+        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+        Adauga un pacient nou
+
+    </a>
+</p>
+<div class="search-box" style=" margin-bottom:10px">
+    @using (Html.BeginForm("Index", "Pacients", FormMethod.Get))
+    {
+        @Html.TextBox("searching")<input type="submit" value="Search" />
+    }
+</div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenume)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.CNP)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adresa)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrCard)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Asigurarea)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Alergii)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Antecedente_heredocolaterale)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Antecedente_personale_patologice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Antecedente_personale_fiziologice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Meseria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocMunca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fumator)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Elev)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Greutate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sex)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Varsta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataNastere)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vaccinuri)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nr_sarcini)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nr_avorturi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Medic.Nume)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.MedicPId == (int)Session["ID"])
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenume)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CNP)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adresa)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrCard)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Asigurarea)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Alergii)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Antecedente_heredocolaterale)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Antecedente_personale_patologice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Antecedente_personale_fiziologice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Meseria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocMunca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fumator)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Elev)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Greutate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Varsta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataNastere)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Vaccinuri)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nr_sarcini)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nr_avorturi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Medic.Nume)
+                    </td>*@
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                    </td>*@
+                <td>
+                    <a href="@Url.Action("Edit", "Pacients", new { id = item.ID })" class="btn btn-info">
+                        <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        Editeaza
+
+                    </a>
+                    @*<a href="@Url.Action("Delete", "Pacients", new { id = item.ID })" class="btn btn-danger">
+                        <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                        Sterge
+
+                    </a>*@
+                    <a href="@Url.Action("Details", "Pacients", new { id = item.ID })" class="btn btn-success">
+                        <span class="glyphicon glyphicon glyphicon-list" aria-hidden="true"></span>
+                        Detalii pacient
+
+                    </a>
+                    <a href="@Url.Action("AdaugaConsultatie", "Pacients", new { consultatieid = item.ID })" class="btn btn-warning">
+                        <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                        Adauga o consultatie
+
+                    </a>
+                    <a href="@Url.Action("Index1","Consultaties", new { consultatieid=item.ID })" class="btn btn-primary">
+                        <span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span>
+                        Consultatii
+
+                    </a>
+
+                </td>
+            </tr>
+            }
+            
+
+        }
+
+    </table>

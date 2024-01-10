@@ -1,0 +1,117 @@
+﻿@model Doctor.Models.Consultatie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalii consultatie</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Greutate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Greutate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Talie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Talie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inaltime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inaltime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RezultateAnalize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RezultateAnalize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnostic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnostic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tratament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tratament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observatii)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observatii)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medic.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pacient.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pacient.Nume)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+    <a href="@Url.Action("Index", "Pacients")" class="btn btn-info">
+        Inapoi la pagina principala
+        <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+    </a>
+</p>

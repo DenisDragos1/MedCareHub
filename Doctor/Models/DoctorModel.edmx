@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DoctorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Consultatie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PacientId" Type="int" />
+          <Property Name="MediCId" Type="int" />
+          <Property Name="Data" Type="date" />
+          <Property Name="Temperatura" Type="float" />
+          <Property Name="Greutate" Type="float" />
+          <Property Name="Talie" Type="float" />
+          <Property Name="Inaltime" Type="float" />
+          <Property Name="IMC" Type="float" />
+          <Property Name="RezultateAnalize" Type="nvarchar" MaxLength="256" />
+          <Property Name="Diagnostic" Type="nvarchar" MaxLength="256" />
+          <Property Name="Tratament" Type="nvarchar" MaxLength="256" />
+          <Property Name="Observatii" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Medic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Parola" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="CNP" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pacient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data" Type="date" />
+          <Property Name="CNP" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="NrCard" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Asigurarea" Type="nvarchar" MaxLength="256" />
+          <Property Name="Alergii" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Antecedente_heredocolaterale" Type="nvarchar" MaxLength="100" />
+          <Property Name="Antecedente_personale_patologice" Type="nvarchar" MaxLength="256" />
+          <Property Name="Antecedente_personale_fiziologice" Type="nvarchar" MaxLength="256" />
+          <Property Name="Meseria" Type="nvarchar" MaxLength="256" />
+          <Property Name="LocMunca" Type="nvarchar" MaxLength="256" />
+          <Property Name="Fumator" Type="bit" />
+          <Property Name="Elev" Type="bit" />
+          <Property Name="Student" Type="bit" />
+          <Property Name="Greutate" Type="float" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Varsta" Type="int" />
+          <Property Name="DataNastere" Type="date" />
+          <Property Name="MedicPId" Type="int" />
+          <Property Name="Vaccinuri" Type="nvarchar" MaxLength="256" />
+          <Property Name="Nr_sarcini" Type="int" />
+          <Property Name="Nr_avorturi" Type="int" />
+        </EntityType>
+        <Association Name="FK__Consultat__MediC__2A4B4B5E">
+          <End Role="Medic" Type="Self.Medic" Multiplicity="0..1" />
+          <End Role="Consultatie" Type="Self.Consultatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consultatie">
+              <PropertyRef Name="MediCId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consultat__Pacie__29572725">
+          <End Role="Pacient" Type="Self.Pacient" Multiplicity="0..1" />
+          <End Role="Consultatie" Type="Self.Consultatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consultatie">
+              <PropertyRef Name="PacientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacient__MedicPI__267ABA7A">
+          <End Role="Medic" Type="Self.Medic" Multiplicity="0..1" />
+          <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pacient">
+              <PropertyRef Name="MedicPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DoctorModelStoreContainer">
+          <EntitySet Name="Consultatie" EntityType="Self.Consultatie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medic" EntityType="Self.Medic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Consultat__MediC__2A4B4B5E" Association="Self.FK__Consultat__MediC__2A4B4B5E">
+            <End Role="Medic" EntitySet="Medic" />
+            <End Role="Consultatie" EntitySet="Consultatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consultat__Pacie__29572725" Association="Self.FK__Consultat__Pacie__29572725">
+            <End Role="Pacient" EntitySet="Pacient" />
+            <End Role="Consultatie" EntitySet="Consultatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacient__MedicPI__267ABA7A" Association="Self.FK__Pacient__MedicPI__267ABA7A">
+            <End Role="Medic" EntitySet="Medic" />
+            <End Role="Pacient" EntitySet="Pacient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DoctorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Consultatie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PacientId" Type="Int32" />
+          <Property Name="MediCId" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="Temperatura" Type="Double" />
+          <Property Name="Greutate" Type="Double" />
+          <Property Name="Talie" Type="Double" />
+          <Property Name="Inaltime" Type="Double" />
+          <Property Name="IMC" Type="Double" />
+          <Property Name="RezultateAnalize" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Diagnostic" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Tratament" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Observatii" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Medic" Relationship="Self.FK__Consultat__MediC__2A4B4B5E" FromRole="Consultatie" ToRole="Medic" />
+          <NavigationProperty Name="Pacient" Relationship="Self.FK__Consultat__Pacie__29572725" FromRole="Consultatie" ToRole="Pacient" />
+        </EntityType>
+        <EntityType Name="Medic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Parola" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CNP" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresa" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Consultaties" Relationship="Self.FK__Consultat__MediC__2A4B4B5E" FromRole="Medic" ToRole="Consultatie" />
+          <NavigationProperty Name="Pacients" Relationship="Self.FK__Pacient__MedicPI__267ABA7A" FromRole="Medic" ToRole="Pacient" />
+        </EntityType>
+        <EntityType Name="Pacient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="CNP" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresa" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrCard" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Asigurarea" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Alergii" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Antecedente_heredocolaterale" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Antecedente_personale_patologice" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Antecedente_personale_fiziologice" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Meseria" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LocMunca" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Fumator" Type="Boolean" />
+          <Property Name="Elev" Type="Boolean" />
+          <Property Name="Student" Type="Boolean" />
+          <Property Name="Greutate" Type="Double" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Varsta" Type="Int32" />
+          <Property Name="DataNastere" Type="DateTime" Precision="0" />
+          <Property Name="MedicPId" Type="Int32" />
+          <Property Name="Vaccinuri" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Nr_sarcini" Type="Int32" />
+          <Property Name="Nr_avorturi" Type="Int32" />
+          <NavigationProperty Name="Consultaties" Relationship="Self.FK__Consultat__Pacie__29572725" FromRole="Pacient" ToRole="Consultatie" />
+          <NavigationProperty Name="Medic" Relationship="Self.FK__Pacient__MedicPI__267ABA7A" FromRole="Pacient" ToRole="Medic" />
+        </EntityType>
+        <Association Name="FK__Consultat__MediC__2A4B4B5E">
+          <End Role="Medic" Type="Self.Medic" Multiplicity="0..1" />
+          <End Role="Consultatie" Type="Self.Consultatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consultatie">
+              <PropertyRef Name="MediCId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consultat__Pacie__29572725">
+          <End Role="Pacient" Type="Self.Pacient" Multiplicity="0..1" />
+          <End Role="Consultatie" Type="Self.Consultatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consultatie">
+              <PropertyRef Name="PacientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacient__MedicPI__267ABA7A">
+          <End Role="Medic" Type="Self.Medic" Multiplicity="0..1" />
+          <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pacient">
+              <PropertyRef Name="MedicPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DoctorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Consultaties" EntityType="Self.Consultatie" />
+          <EntitySet Name="Medics" EntityType="Self.Medic" />
+          <EntitySet Name="Pacients" EntityType="Self.Pacient" />
+          <AssociationSet Name="FK__Consultat__MediC__2A4B4B5E" Association="Self.FK__Consultat__MediC__2A4B4B5E">
+            <End Role="Medic" EntitySet="Medics" />
+            <End Role="Consultatie" EntitySet="Consultaties" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consultat__Pacie__29572725" Association="Self.FK__Consultat__Pacie__29572725">
+            <End Role="Pacient" EntitySet="Pacients" />
+            <End Role="Consultatie" EntitySet="Consultaties" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacient__MedicPI__267ABA7A" Association="Self.FK__Pacient__MedicPI__267ABA7A">
+            <End Role="Medic" EntitySet="Medics" />
+            <End Role="Pacient" EntitySet="Pacients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DoctorModelStoreContainer" CdmEntityContainer="DoctorEntities">
+          <EntitySetMapping Name="Consultaties">
+            <EntityTypeMapping TypeName="DoctorModel.Consultatie">
+              <MappingFragment StoreEntitySet="Consultatie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PacientId" ColumnName="PacientId" />
+                <ScalarProperty Name="MediCId" ColumnName="MediCId" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+                <ScalarProperty Name="Greutate" ColumnName="Greutate" />
+                <ScalarProperty Name="Talie" ColumnName="Talie" />
+                <ScalarProperty Name="Inaltime" ColumnName="Inaltime" />
+                <ScalarProperty Name="IMC" ColumnName="IMC" />
+                <ScalarProperty Name="RezultateAnalize" ColumnName="RezultateAnalize" />
+                <ScalarProperty Name="Diagnostic" ColumnName="Diagnostic" />
+                <ScalarProperty Name="Tratament" ColumnName="Tratament" />
+                <ScalarProperty Name="Observatii" ColumnName="Observatii" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medics">
+            <EntityTypeMapping TypeName="DoctorModel.Medic">
+              <MappingFragment StoreEntitySet="Medic">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="CNP" ColumnName="CNP" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacients">
+            <EntityTypeMapping TypeName="DoctorModel.Pacient">
+              <MappingFragment StoreEntitySet="Pacient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="CNP" ColumnName="CNP" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="NrCard" ColumnName="NrCard" />
+                <ScalarProperty Name="Asigurarea" ColumnName="Asigurarea" />
+                <ScalarProperty Name="Alergii" ColumnName="Alergii" />
+                <ScalarProperty Name="Antecedente_heredocolaterale" ColumnName="Antecedente_heredocolaterale" />
+                <ScalarProperty Name="Antecedente_personale_patologice" ColumnName="Antecedente_personale_patologice" />
+                <ScalarProperty Name="Antecedente_personale_fiziologice" ColumnName="Antecedente_personale_fiziologice" />
+                <ScalarProperty Name="Meseria" ColumnName="Meseria" />
+                <ScalarProperty Name="LocMunca" ColumnName="LocMunca" />
+                <ScalarProperty Name="Fumator" ColumnName="Fumator" />
+                <ScalarProperty Name="Elev" ColumnName="Elev" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Greutate" ColumnName="Greutate" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Varsta" ColumnName="Varsta" />
+                <ScalarProperty Name="DataNastere" ColumnName="DataNastere" />
+                <ScalarProperty Name="MedicPId" ColumnName="MedicPId" />
+                <ScalarProperty Name="Vaccinuri" ColumnName="Vaccinuri" />
+                <ScalarProperty Name="Nr_sarcini" ColumnName="Nr_sarcini" />
+                <ScalarProperty Name="Nr_avorturi" ColumnName="Nr_avorturi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

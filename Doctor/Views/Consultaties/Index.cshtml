@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Doctor.Models.Consultatie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Greutate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Talie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inaltime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RezultateAnalize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnostic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tratament)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observatii)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pacient.Nume)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item.MediCId == (int)Session["ID"] && item.PacientId==item.Pacient.ID )
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Greutate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Talie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inaltime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RezultateAnalize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diagnostic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tratament)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observatii)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medic.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacient.Nume)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+    }
+}
+
+</table>

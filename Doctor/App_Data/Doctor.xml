@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Doctor</name>
+    </assembly>
+    <members>
+        <member name="M:Doctor.Controllers.AdaugarePacientController.Adaugare(Doctor.Models.AdPacient,Doctor.Models.Pacient)">
+            <summary>
+            Obiecte aferente claselor AdPacient si Pacient pentru a putea adauga un pacient
+            </summary>
+            <param name="pacient1"></param>
+            <param name="pacient"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Doctor.Controllers.InregistrareController.Inregistrare(Doctor.Models.Medic)">
+            <summary>
+            creeam un obiect medic aferent clasei Medic
+            si facem inregistararea
+            </summary>
+            <param name="medic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.InregistrareController.Conectare(Doctor.Models.Conectare,Doctor.Models.Medic)">
+            <summary>
+            adaugam un obiect con aferent clasei conectare din Models
+            si un obiect medic aferent clasei Medic pentru a putea aceesa datele din clasa
+            </summary>
+            <param name="con"></param>
+            <param name="medic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.MedicsController.Details(System.Nullable{System.Int32})">
+            <summary>
+            id-ul fiecarui medic
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.MedicsController.Create">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.MedicsController.Create(Doctor.Models.Medic)">
+            <summary>
+            medic - obiect pentru Clasa
+            </summary>
+            <param name="medic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.MedicsController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Primeste id-ul de referinta a medicului
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.MedicsController.Edit(Doctor.Models.Medic)">
+            <summary>
+            medic -obiect
+            </summary>
+            <param name="medic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.PacientsController.Index(System.String,System.Boolean)">
+            <summary>
+            pentru searchbox sunt folosite doua variabile una pentru cautare se tip streeng -searching
+            si una pentru verificare de tip bool -myRequestsOnly
+            </summary>
+            <param name="searching"></param>
+            <param name="myRequestsOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.PacientsController.Details(System.Nullable{System.Int32})">
+            <summary>
+            primeste id-ul de referinta a pacientului si trimite catre view informatiile de afisare
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.PacientsController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            primeste id-ul de referinta a pacientului si editeaza informatiile despre pacient
+            </summary>
+            <param name="id"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Doctor.Controllers.PacientsController.Edit(Doctor.Models.Pacient)">
+            <summary>
+            facem un obiect de tip Pacient pentru a putea actualiza informatiile
+            </summary>
+            <param name="pacient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Doctor.Controllers.PacientsController.AdaugaConsultatie(Doctor.Models.AdConsultatie,System.Int32)">
+            <summary>
+            creeam un obiect consultatie care deriva din clasa AdConsultatie
+            creeam o variabila consultatieid in care stocam id-ul pacientului
+            </summary>
+            <param name="consultatie"></param>
+            <param name="consultatieid"></param>
+            <returns>string</returns>
+        </member>
+    </members>
+</doc>

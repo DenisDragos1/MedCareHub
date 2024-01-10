@@ -1,0 +1,135 @@
+﻿@model Doctor.Models.Consultatie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h3>Esti sigur ca vrei sa stergi aceasta consultatie?</h3>
+<div>
+    <h4>Odata stearsa aceasta este stearsa definitiv</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Greutate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Greutate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Talie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Talie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inaltime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inaltime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RezultateAnalize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RezultateAnalize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnostic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnostic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tratament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tratament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observatii)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observatii)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medic.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pacient.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pacient.Nume)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @*<div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+        <div class="form-actions no-color">
+            <input type="submit" value="Sterge" class="btn btn-danger" />
+        </div>
+
+        <div class="form-actions no-color">
+            <a href="@Url.Action("Index", "Pacients")" class="btn btn-info">
+                <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+
+                Inapoi la pagina principala
+            </a>
+        </div>
+    }
+
+
+
+</div>

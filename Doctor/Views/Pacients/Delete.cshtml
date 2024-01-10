@@ -1,0 +1,239 @@
+﻿@model Doctor.Models.Pacient
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Esti sigur ca vrei sa stergi aceasta persoana!</h2>
+
+<h3>Odata stearsa datele despre aceasta persoana se sterg definitiv</h3>
+<div>
+    @*<h4>Pacient</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrCard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Asigurarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asigurarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alergii)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alergii)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antecedente_heredocolaterale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antecedente_heredocolaterale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antecedente_personale_patologice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antecedente_personale_patologice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antecedente_personale_fiziologice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antecedente_personale_fiziologice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meseria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meseria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocMunca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocMunca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fumator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fumator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Elev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elev)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Greutate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Greutate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Varsta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Varsta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNastere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNastere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vaccinuri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vaccinuri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nr_sarcini)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nr_sarcini)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nr_avorturi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nr_avorturi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medic.Nume)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sterge" class="btn btn-danger" />
+        </div>
+        
+            <div class="form-actions no-color">
+                <a href="@Url.Action("Index", "Pacients")" class="btn btn-info">
+                    Inapoi la pagina principala
+                    <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+                </a>
+            </div>
+            }
+        </div>

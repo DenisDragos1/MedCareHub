@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b2cfbd261e341aab1fcf7bd06ecf274" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="DoctorModel.Consultatie" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorModel.Medic" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorModel.Pacient" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="DoctorModel.FK__Consultat__MediC__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorModel.FK__Consultat__Pacie__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorModel.FK__Pacient__MedicPI__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
